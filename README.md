@@ -46,8 +46,18 @@ Testbench: Simulate with combinations of J, K, and c1k to verify JK Flip-Flop fu
 Developed by: A.S.Yaswanth Kumar
 RegisterNumber:212224230310
 */
+```
+module Exp7(input J, input K, input clk, output reg Q, output reg Qbar);
+    always @(posedge clk)
+    begin
+        Q <= (J & ~Q) | (~K & Q);   // Qnext = JQ' + K'Q
+        Qbar <= ~((J & ~Q) | (~K & Q));
+    end
+endmodule
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
+
 <img width="632" height="400" alt="Screenshot 2025-10-07 142535" src="https://github.com/user-attachments/assets/c40e2ca3-3367-48d7-8496-fc1dd2a9accf" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
